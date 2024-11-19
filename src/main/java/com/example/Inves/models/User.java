@@ -1,6 +1,6 @@
 package com.example.Inves.models;
 
-/**
+/*
  * @author Bossowski
  * @version 1.0
  * @email Mbossowski01@gmail.com
