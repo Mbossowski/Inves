@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import com.example.Inves.models.Stock;
 import com.example.Inves.requestmodels.StockRequest;
 import com.example.Inves.services.*;
-
+import com.example.Inves.services.impl.*;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Bossowski
@@ -28,10 +29,10 @@ import java.util.List;
 @CrossOrigin("http://localhost:3000")
 public class StockController {
     @Autowired
-    private StockServiceImpl stockService;
-    @GetMapping
-    public ResponseEntity<List<Stock>> getAllStocks(){
-        return  new ResponseEntity<List<Stock>>(stockService.allStocks(), HttpStatus.OK);
+    private YahooFinanceServiceImpl stockService;
 
+    @GetMapping("")
+    public List<Stock> allStocks(@RequestParam(required = false, defaultValue = "1") String Page) {
+        return stockService.allStocks(Page);
     }
 }

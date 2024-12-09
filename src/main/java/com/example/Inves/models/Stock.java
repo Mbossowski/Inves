@@ -1,19 +1,19 @@
 package com.example.Inves.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 
+
+import java.math.BigDecimal;
 import java.util.*;
+
 /**
  * @author Bossowski
  * @version 1.0
  * @email Mbossowski01@gmail.com
  * @date 28/11/2024 - 12:58
  */
-
 @Data
 @Entity
 @Builder
@@ -23,11 +23,13 @@ public class Stock {
     private Long ID_Stock;
 
     private String Symbol;
-
     private String CompanyName;
-
     private String Market;
 
+    private BigDecimal Price;
+    private BigDecimal ValueChange;
+    private BigDecimal PercentageChange;
+    private BigDecimal MarketCap;
 
     @OneToMany(mappedBy = "stock", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<StockHolding> stockHoldings = new ArrayList<>();
@@ -35,25 +37,33 @@ public class Stock {
     @ManyToMany(mappedBy = "stocks")
     private List<Watchlist> watchlists = new ArrayList<>();
 
-    public Stock(Long ID_Stock, String Symbol, String CompanyName, String Market, List<StockHolding> stockHoldings, List<Watchlist> watchlists)
-    {
+    // Default constructor
+    public Stock() {}
+
+    // Constructor with all fields
+    public Stock(Long ID_Stock, String Symbol, String CompanyName, String Market, BigDecimal Price, BigDecimal ValueChange, BigDecimal PercentageChange, BigDecimal MarketCap, List<StockHolding> stockHoldings, List<Watchlist> watchlists) {
         this.ID_Stock = ID_Stock;
         this.Symbol = Symbol;
         this.CompanyName = CompanyName;
         this.Market = Market;
-        this.stockHoldings = stockHoldings;
-        this.watchlists = watchlists;
-    };
+        this.Price = Price;
+        this.ValueChange = ValueChange;
+        this.PercentageChange = PercentageChange;
+        this.MarketCap = MarketCap;
+        this.stockHoldings = stockHoldings != null ? stockHoldings : new ArrayList<>();
+        this.watchlists = watchlists != null ? watchlists : new ArrayList<>();
 
-    public Stock(Long ID_Stock, String Symbol, String CompanyName, String Market)
-    {
+    }
+
+    // Constructor without List<StockHolding> and List<Watchlist>
+    public Stock(Long ID_Stock, String Symbol, String CompanyName, String Market, BigDecimal price, BigDecimal change, BigDecimal percentageChange, BigDecimal MarketCap) {
         this.ID_Stock = ID_Stock;
         this.Symbol = Symbol;
         this.CompanyName = CompanyName;
         this.Market = Market;
-    };
-
-    public Stock()
-    {}
-
+        this.Price = Price;
+        this.ValueChange = ValueChange;
+        this.PercentageChange = PercentageChange;
+        this.MarketCap = MarketCap;
+    }
 }

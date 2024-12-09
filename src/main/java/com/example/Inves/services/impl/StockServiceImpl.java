@@ -10,7 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-
+import org.springframework.beans.factory.annotation.Value;
 import java.util.List;
 
 /**
@@ -29,7 +29,7 @@ public class StockServiceImpl implements StockService {
     public StockServiceImpl(StockDAORepository StockRepository) {
         this.StockRepository = StockRepository;
     }
-    public List<Stock> allStocks()
+    public List<Stock> allStocks(String Page)
     {
         return StockRepository.findAll();
     }
