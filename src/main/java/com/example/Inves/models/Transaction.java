@@ -1,6 +1,17 @@
 package com.example.Inves.models;
 
-import jakarta.persistence.Entity;
+
+import jakarta.annotation.Nullable;
+import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.Data;
+
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
 
 /**
  * @author Bossowski
@@ -8,14 +19,22 @@ import jakarta.persistence.Entity;
  * @email Mbossowski01@gmail.com
  * @date 28/11/2024 - 12:58
  */
+@Data
+@Builder
 @Entity
 public class Transaction {
-    private String ID_Transaction;
-    private String ID_User;
-    private String ID_Stock;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long ID_Transaction;
+    @ManyToOne
+    @JoinColumn(name = "ID_User")
+    private User user;
+    @ManyToOne
+    @JoinColumn(name = "ID_Stock")
+    private Stock stock;
     private String TransactionType ;
-    private String Quantity;
-    private String PricePerUnit;
-    private String TotalAmount;
-    private String TransactionDate;
+    private int Quantity;
+    private BigDecimal  PricePerUnit;
+    private BigDecimal  TotalAmount;
+    private Date TransactionDate;
 }

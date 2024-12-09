@@ -1,6 +1,16 @@
 package com.example.Inves.models;
 
-import jakarta.persistence.Entity;
+
+import jakarta.annotation.Nullable;
+import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.Data;
+
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * @author Bossowski
@@ -8,11 +18,19 @@ import jakarta.persistence.Entity;
  * @email Mbossowski01@gmail.com
  * @date 28/11/2024 - 12:58
  */
+@Data
+@Builder
 @Entity
 public class StockHolding {
-    private String ID_Stock_Hold;
-    private String ID_Portfolio;
-    private String ID_Stock;
-    private String Quantity;
-    private String AveragePurchasePrice;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long ID_Stock_Hold;
+    @ManyToOne
+    @JoinColumn(name = "ID_Portfolio")
+    private Portfolio portfolio;
+    @ManyToOne
+    @JoinColumn(name = "ID_Stock")
+    private Stock stock;
+    private int Quantity;
+    private BigDecimal AveragePurchasePrice;
 }
