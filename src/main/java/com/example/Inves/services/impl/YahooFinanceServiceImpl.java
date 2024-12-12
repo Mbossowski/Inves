@@ -30,6 +30,7 @@ public class YahooFinanceServiceImpl implements YahooFinanceService {
     private final WebSocketController webSocketController; // Inject WebSocketController
     private final ObjectMapper objectMapper;
 
+    private long YahooApiRequests =0;
     @Autowired
     public YahooFinanceServiceImpl(ObjectMapper objectMapper, WebSocketController webSocketController) {
         this.objectMapper = objectMapper;
@@ -72,11 +73,14 @@ public class YahooFinanceServiceImpl implements YahooFinanceService {
                     stock.setCompanyName(stockDTO.getName());
                     stock.setMarket("NASDAQ");
 
+
+
                     // Remove the "$" and parse as BigDecimal
                     String priceWithSymbol = stockNode.path("lastsale").asText();
                     if (priceWithSymbol.startsWith("$")) {
-                        String price = priceWithSymbol.substring(1);
-                        stock.setPrice(new BigDecimal(price));
+                        String priceWithCommas = priceWithSymbol.substring(1);
+                        String priceWithoutCommas = priceWithCommas.replace(",", "");
+                        stock.setPrice(new BigDecimal(priceWithoutCommas));
                     }
 
                     stock.setValueChange(new BigDecimal(stockDTO.getNetchange()));
@@ -101,6 +105,7 @@ public class YahooFinanceServiceImpl implements YahooFinanceService {
             // Send the updated stock list to clients via WebSocket
             String stockUpdateJson = objectMapper.writeValueAsString(stocks); // Convert stock list to JSON
             webSocketController.sendStockUpdate(stockUpdateJson); // Broadcast to all subscribers
+            System.out.println(YahooApiRequests++);
 
         } catch (Exception e) {
             logger.error("Error fetching stocks from Yahoo Finance: {}", e.getMessage());
