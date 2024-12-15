@@ -25,12 +25,12 @@ import java.util.Set;
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID_Transaction;
+    private Long id;
     @ManyToOne
-    @JoinColumn(name = "ID_User")
+    @JoinColumn(name = "userId")
     private User user;
     @ManyToOne
-    @JoinColumn(name = "ID_Stock")
+    @JoinColumn(name = "stockId")
     private Stock stock;
     private String TransactionType ;
     private int Quantity;

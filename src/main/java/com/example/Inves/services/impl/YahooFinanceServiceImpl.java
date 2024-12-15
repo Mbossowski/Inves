@@ -41,8 +41,8 @@ public class YahooFinanceServiceImpl implements YahooFinanceService {
 
 
     public List<Stock> allStocks(String page) {
-        String baseUrl = "https://yahoo-finance15.p.rapidapi.com/api/v2/markets/tickers?page=";
-        String url = baseUrl + page + "&type=STOCKS";
+        String baseUrl = "https://api.twelvedata.com/stocks?exchange=NASDAQ";
+        String url = baseUrl;
 
         List<Stock> stocks = new ArrayList<>();
 
@@ -50,8 +50,8 @@ public class YahooFinanceServiceImpl implements YahooFinanceService {
             // Build HTTP request
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
-                    .header("x-rapidapi-key", "e4635e3ab8msh864a7a3425fbdbap1eaa77jsn65a132f3f579")
-                    .header("x-rapidapi-host", "yahoo-finance15.p.rapidapi.com")
+                  //  .header("&apikey", "2bb91409c3124a27b3461e0102cfb917")
+                   // .header("&interval", "1min")
                     .GET()
                     .build();
 
@@ -61,7 +61,7 @@ public class YahooFinanceServiceImpl implements YahooFinanceService {
 
             // Parse response into DTO list
             JsonNode rootNode = objectMapper.readTree(response.body());
-            JsonNode dataNode = rootNode.path("body");
+            JsonNode dataNode = rootNode.path("data");
 
             if (dataNode.isArray()) {
 
@@ -71,32 +71,8 @@ public class YahooFinanceServiceImpl implements YahooFinanceService {
                     Stock stock = new Stock();
                     stock.setSymbol(stockDTO.getSymbol());
                     stock.setCompanyName(stockDTO.getName());
-                    stock.setMarket("NASDAQ");
+                    stock.setMarket(stockDTO.getExchange());
 
-
-
-                    // Remove the "$" and parse as BigDecimal
-                    String priceWithSymbol = stockNode.path("lastsale").asText();
-                    if (priceWithSymbol.startsWith("$")) {
-                        String priceWithCommas = priceWithSymbol.substring(1);
-                        String priceWithoutCommas = priceWithCommas.replace(",", "");
-                        stock.setPrice(new BigDecimal(priceWithoutCommas));
-                    }
-
-                    stock.setValueChange(new BigDecimal(stockDTO.getNetchange()));
-
-                    // Remove the "%" and parse as BigDecimal
-                    String pctChangeWithSymbol = stockNode.path("pctchange").asText();
-                    if (pctChangeWithSymbol.endsWith("%")) {
-                        String pctChange = pctChangeWithSymbol.substring(0, pctChangeWithSymbol.length() - 1);
-                        stock.setPercentageChange(new BigDecimal(pctChange));
-                    }
-
-
-                    // Handle marketCap by removing commas and converting to BigDecimal
-                    String marketCapWithCommas = stockNode.path("marketCap").asText();
-                    String marketCapWithoutCommas = marketCapWithCommas.replace(",", "");
-                    stock.setMarketCap(new BigDecimal(marketCapWithoutCommas));
 
                     stocks.add(stock);
                 }

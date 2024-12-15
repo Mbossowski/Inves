@@ -24,12 +24,12 @@ import java.util.Set;
 public class StockHolding {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID_Stock_Hold;
+    private Long id;
     @ManyToOne
-    @JoinColumn(name = "ID_Portfolio")
+    @JoinColumn(name = "portfolioId")
     private Portfolio portfolio;
     @ManyToOne
-    @JoinColumn(name = "ID_Stock")
+    @JoinColumn(name = "stockId")
     private Stock stock;
     private int Quantity;
     private BigDecimal AveragePurchasePrice;

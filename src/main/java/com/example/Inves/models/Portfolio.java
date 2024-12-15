@@ -22,11 +22,11 @@ import java.util.*;
 public class Portfolio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID_Portfolio;
+    private Long id;
     private String Balance;
 
     @ManyToOne
-    @JoinColumn(name = "ID_User")
+    @JoinColumn(name = "userId")
     private User user;
 
     @OneToMany(mappedBy = "portfolio", cascade = CascadeType.ALL, orphanRemoval = true)

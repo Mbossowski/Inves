@@ -1,36 +1,26 @@
 package com.example.Inves.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-
-import java.util.*;
-/**
- * @author Bossowski
- * @version 1.0
- * @email Mbossowski01@gmail.com
- * @date 28/11/2024 - 12:58
- */
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Builder
+@AllArgsConstructor  // Generates a constructor with all fields
+@NoArgsConstructor   // Generates a no-argument constructor
 public class Watchlist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID_Watchlist;
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "ID_User")
+    @JoinColumn(name = "userId")
+    @JsonIgnore
     private User user;
 
-    @ManyToMany
-    @JoinTable(
-            name = "watchlist_stock",
-            joinColumns = @JoinColumn(name = "ID_Watchlist"),
-            inverseJoinColumns = @JoinColumn(name = "ID_Stock")
-    )
-    private List<Stock> stocks = new ArrayList<>();
-
-    private String AddedDate;
+    private String Symbol;
 }

@@ -31,6 +31,8 @@ public class UserController {
     private UserServiceImpl userService;
     @Autowired
     private UserDAORepository userDAORepository;
+
+
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody UserRequest userRequest) {
         try {
@@ -51,7 +53,7 @@ public class UserController {
         if (user != null && user.getPassword().equals(loginRequest.getPassword())) {
             // Exclude password in the response
             User sanitizedUser = new User();
-            sanitizedUser.setID_User(user.getID_User());
+            sanitizedUser.setId(user.getId());
             sanitizedUser.setUsername(user.getUsername());
             sanitizedUser.setEmail(user.getEmail());
             System.out.println("good");

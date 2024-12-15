@@ -9,12 +9,14 @@ package com.example.Inves.models.DTO;
 public class StockDTO {
     private String symbol;
     private String name;
-    private String lastsale;
-    private String netchange;
-    private String pctchange;
-    private String marketCap;
+    private String currency;
+    private String exchange;
+    private String mic_code;
+    private String country;
+    private String type;
+    private String figi_code;
 
-    // Getters and setters
+    // Getter and Setter for symbol
     public String getSymbol() {
         return symbol;
     }
@@ -23,6 +25,7 @@ public class StockDTO {
         this.symbol = symbol;
     }
 
+    // Getter and Setter for name
     public String getName() {
         return name;
     }
@@ -31,35 +34,57 @@ public class StockDTO {
         this.name = name;
     }
 
-    public String getLastsale() {
-        return lastsale;
+    // Getter and Setter for currency
+    public String getCurrency() {
+        return currency;
     }
 
-    public void setLastsale(String lastsale) {
-        this.lastsale = lastsale;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
-    public String getNetchange() {
-        return netchange;
+    // Getter and Setter for exchange
+    public String getExchange() {
+        return exchange;
     }
 
-    public void setNetchange(String netchange) {
-        this.netchange = netchange;
+    public void setExchange(String exchange) {
+        this.exchange = exchange;
     }
 
-    public String getPctchange() {
-        return pctchange;
+    // Getter and Setter for mic_code
+    public String getMic_code() {
+        return mic_code;
     }
 
-    public void setPctchange(String pctchange) {
-        this.pctchange = pctchange;
+    public void setMic_code(String mic_code) {
+        this.mic_code = mic_code;
     }
 
-    public String getMarketCap() {
-        return marketCap;
+    // Getter and Setter for country
+    public String getCountry() {
+        return country;
     }
 
-    public void setMarketCap(String marketCap) {
-        this.marketCap = marketCap;
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    // Getter and Setter for type
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    // Getter and Setter for figi_code
+    public String getFigi_code() {
+        return figi_code;
+    }
+
+    public void setFigi_code(String figi_code) {
+        this.figi_code = figi_code;
     }
 }

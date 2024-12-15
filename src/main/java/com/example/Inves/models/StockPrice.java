@@ -24,9 +24,9 @@ import java.util.Set;
 public class StockPrice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID_Stock_Price;
+    private Long id;
     @ManyToOne
-    @JoinColumn(name = "ID_Stock")
+    @JoinColumn(name = "stockId")
     private Stock stock;
     private Date Date;
     private BigDecimal OpenPrice;

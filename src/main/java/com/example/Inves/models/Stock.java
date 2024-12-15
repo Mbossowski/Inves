@@ -20,7 +20,7 @@ import java.util.*;
 public class Stock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID_Stock;
+    private Long id;
 
     private String Symbol;
     private String CompanyName;
@@ -34,15 +34,14 @@ public class Stock {
     @OneToMany(mappedBy = "stock", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<StockHolding> stockHoldings = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "stocks")
-    private List<Watchlist> watchlists = new ArrayList<>();
+
 
     // Default constructor
     public Stock() {}
 
     // Constructor with all fields
-    public Stock(Long ID_Stock, String Symbol, String CompanyName, String Market, BigDecimal Price, BigDecimal ValueChange, BigDecimal PercentageChange, BigDecimal MarketCap, List<StockHolding> stockHoldings, List<Watchlist> watchlists) {
-        this.ID_Stock = ID_Stock;
+    public Stock(Long ID_Stock, String Symbol, String CompanyName, String Market, BigDecimal Price, BigDecimal ValueChange, BigDecimal PercentageChange, BigDecimal MarketCap, List<StockHolding> stockHoldings) {
+        this.id = ID_Stock;
         this.Symbol = Symbol;
         this.CompanyName = CompanyName;
         this.Market = Market;
@@ -51,13 +50,12 @@ public class Stock {
         this.PercentageChange = PercentageChange;
         this.MarketCap = MarketCap;
         this.stockHoldings = stockHoldings != null ? stockHoldings : new ArrayList<>();
-        this.watchlists = watchlists != null ? watchlists : new ArrayList<>();
 
     }
 
     // Constructor without List<StockHolding> and List<Watchlist>
     public Stock(Long ID_Stock, String Symbol, String CompanyName, String Market, BigDecimal price, BigDecimal change, BigDecimal percentageChange, BigDecimal MarketCap) {
-        this.ID_Stock = ID_Stock;
+        this.id = ID_Stock;
         this.Symbol = Symbol;
         this.CompanyName = CompanyName;
         this.Market = Market;

@@ -19,7 +19,7 @@ import java.util.Date;
 public class MarketNews {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID_News;
+    private Long id;
 
     private String Title;
     private String Content;
