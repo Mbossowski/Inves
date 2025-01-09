@@ -1,0 +1,354 @@
+/* Styling for the StockDetail component */
+.stock-detail {
+    
+    padding: 20px;
+    
+    width: 82%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center;
+    height: calc(100vh - 60px); /* Adjust for header height */
+    background-color: #f9f9f9;
+    color: black;
+    overflow-y: scroll;
+  
+}
+
+.dark .stock-detail {
+    background-color: #2c2c2c;
+    color: white;
+}
+
+/* Stock Header */
+.stock-header {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 20px 0px 10px 0px;
+    text-align: left;
+    padding-left: 20px;
+    width: 100%;
+}
+
+.stock-market-info {
+    font-size: 13px;
+    color: #6c757d;
+    margin-top: 5px;
+  
+}
+
+.stock-current-price
+{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.stock-symbol
+{
+  font-size:28px;
+}
+
+.stock-lastsale
+{
+  font-size:28px;
+}
+
+/* Stock Price Info */
+.stock-price-info {
+    width: 100%;
+    max-width: 600px;
+    margin: 30px 0;
+    font-size: 18px;
+    color: black;
+    text-align: left;
+    
+}
+
+/* Stock Price Info */
+.dark .stock-price-info {
+    width: 100%;
+    max-width: 600px;
+    margin: 30px 0;
+    font-size: 18px;
+    color: white;
+    text-align: left;
+    
+}
+
+.stock-price-info p {
+    margin: 4px 0;
+}
+
+.stock-price-info strong {
+    font-weight: bold;
+}
+
+/* Styling for different price changes */
+.stock-price {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.stock-change {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.stock-change.positive {
+    color: #28a745; /* Green for positive change */
+}
+
+.stock-change.negative {
+    color: #dc3545; /* Red for negative change */
+}
+
+/* Time Info */
+.stock-time {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+
+
+ .back-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 6px 20px;
+    width: 84px;
+    height: 34px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-right: 20px;
+  }
+
+  .button:hover {
+    background-color: #45a049;
+  }
+
+  .back-button-field {
+    width:100%;
+    display: flex;
+     justify-content: flex-start; /* Align button to the right */
+  }
+
+.add-to-watchlist {
+  background-color: #4caf50; /* Green */
+  color: white;
+  border: none;
+  padding: 6px 20px;
+  width: 140px;
+  height: 34px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+
+.add-to-watchlist:hover {
+  background-color: #45a049;
+}
+
+.stock-detail {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.stock-price-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stock-transaction-section
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* pozwala elementom przejść do nowego wiersza */
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%;
+}
+
+.transaction-section h3 {
+
+  font-size: 20px;
+  color: black;
+}
+
+.transaction-section {
+  background-color: #f4f4f4;
+  border-radius: 12px;
+  padding: 10px 0px 10px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  width: 23%;
+  height: 80%;
+  color: black;
+}
+
+
+.transaction-section h3 {
+  font-size:1.2vw;
+}
+
+.stock-info-container {
+  display: flex;
+  justify-content: space-between;
+  min-width: 300px;
+  width: 70%;
+  margin-bottom:20px;
+}
+
+.stock-info-column {
+  font-size:1.2vw;
+  width: 50%;
+}
+
+.transaction-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  
+}
+
+.transaction-fields input {
+  margin-bottom: 1vh;
+  width: 20%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width:80%;
+  height:40%;
+}
+
+.action-buttons button {
+  width: 40%;
+  height: 100%;
+  border-radius: 8px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 80%;
+}
+
+.action-buttons button.active {
+  background-color: #28a745;
+}
+
+
+
+/* Styling for the StockChart component */
+.stock-graph {
+  width: 95%;
+  height: fit-content;
+  margin: 0px 20px 20px 20px;
+  background-color: #ffffff;
+  padding: 10px 20px 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Dark theme for the StockChart */
+.dark .stock-graph {
+  background-color: #3b3b3b;
+  color: #ffffff;
+}
+
+/* Chart canvas styles */
+.stock-graph canvas {
+  width: 100%;
+ 
+  
+}
+
+/* Chart title styling */
+.chart-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Chart grid and axis styles */
+.stock-graph .chart-axis {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.dark .stock-graph .chart-axis {
+  color: #cfcfcf;
+}
+
+/* Styling for the period selector buttons */
+.stock-period-selector {
+  display: flex;
+  gap: 5px;
+  margin: 5px 0px 10px 0px;
+  justify-content: left; /* Align buttons in the center */
+}
+
+.stock-period-selector button {
+  width: 35px;
+  height: 35px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #555; /* Blue border */
+  border-radius: 8px;
+  background-color: white; /* Default background */
+  color: black; /* Default text color */
+  cursor: pointer;
+
+}
+
+.dark .stock-period-selector button {
+  width: 35px;
+  height: 35px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #555; /* Blue border */
+  border-radius: 8px;
+  background-color: #2c2c2c; /* Default background */
+  color: white; /* Default text color */
+  cursor: pointer;
+
+}
+
+
+.stock-period-selector button:hover {
+  background-color: #28a745; /* Blue background on hover */
+  color: white; /* White text on hover */
+}
+
+.stock-period-selector button.active {
+  background-color: #28a745; /* Green background for active button */
+  color: white; /* White text for active button */
+  border: 1px solid #28a745; /* Green border for active button */
+}
+
+
+
+
+
+/* wiadomości o akcjach */
+.stock-news{
+  width: 95%;
+  padding: 0px 10px;
+}

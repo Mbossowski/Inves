@@ -1,0 +1,37 @@
+.news-item {
+    width: 90%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .news-title {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+  }
+  
+  .news-topic {
+    font-style: italic;
+    color: #666;
+  }
+  
+  .news-date,
+  .news-source {
+    font-size: 0.9em;
+    color: #888;
+  }
+  
+  .news-link {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .news-link:hover {
+    text-decoration: underline;
+  }
+  
+  p {
+    margin-bottom: 0px;
+  }

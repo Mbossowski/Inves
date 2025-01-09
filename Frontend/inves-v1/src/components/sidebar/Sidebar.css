@@ -1,0 +1,194 @@
+
+
+
+/* Sidebar container */
+.sidebar {
+  width: 18vw;
+  height: 100%;
+  background-color: var(--bg-color);
+  border-right: 1px solid var(--border-color);
+ 
+  box-sizing: border-box;
+  overflow-y: auto;
+
+  min-width: 150px;
+}
+
+.sidebar-header {
+  padding: 0.7vh 0.7vh 0.7vh 0.7vh;
+  height: 10%;
+}
+
+/* Stock list */
+.stock-list {
+  display: flex;
+  flex-direction: column;
+  
+  
+  height:84%;
+  
+}
+
+
+/* Individual stock item */
+.stock-item {
+  padding: 0.7vh 0.7vh 0.7vh 0.7vh;
+  margin: 0.6vh 0.7vh 0vh 0.7vh;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  overflow: hidden;
+  height: 7%;
+  font-size: 1.2vh;
+
+  
+}
+
+.stock-item-desc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.stock-item-name {
+  text-align: left;
+  color: var(--text-color);
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+
+}
+
+.stock-item-symbol {
+  text-align: left;
+  color: var(--text-color);
+  overflow-x: hidden;
+  
+}
+.stock-item-value {
+  text-align: left;
+  color: var(--text-color);
+  
+  word-spacing: 10px;
+}
+
+.positive {
+  color: #4caf50;
+
+}
+
+.negative {
+  color: rgb(211, 0, 0);
+  
+}
+
+
+/* Disable toggle option if the user is not logged in */
+.toggle-option.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Toggle switch container */
+.toggle-switch {
+  display: flex;
+  justify-content: space-between;
+  background-color: #e0e0e0;
+  border-radius: 2vh;
+  padding: 0.5vh;
+  cursor: pointer;
+}
+
+/* Toggle option styles */
+.toggle-option {
+  width: 48%;
+  text-align: center;
+  padding: 0.3vh 0;
+  font-weight: bold;
+  font-size: 1.5vh;
+  color: #555;
+  border-radius: 2vh;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Active option */
+.toggle-option.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Disabled option (when user is not logged in) */
+.toggle-option.disabled {
+  cursor: not-allowed;
+  color: #ccc;
+}
+
+.stock-search {
+  width: 100%;
+  padding: 0.5vh 0.5vh 0.5vh 1vh;
+  margin-top:0;
+  font-size: 1.5vh;
+  border: none;
+  border-radius: 2vh;
+  outline: none;
+  background-color: #e0e0e0;
+}
+
+.stock-search:focus {
+  border-color: #4caf50;
+}
+
+/* Pagination container */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  height: 6%;
+}
+
+
+/* Previous and Next buttons */
+.nav-button {
+  background-color: #e0e0e0;
+  color: #555;
+  border: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  height: 60%;
+  width: 35%;
+}
+
+.nav-button:hover {
+  background-color: var(--nav-button-hover-bg);
+}
+
+.nav-button:disabled {
+  background-color: var(--nav-button-disabled-bg);
+  cursor: not-allowed;
+}
+
+/* Page input field */
+.page-input {
+  width: 50px;
+  text-align: center;
+  padding: 8px 10px; /* Adjusted padding for consistency */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.page-input:focus {
+  border-color: #007bff; /* Blue outline on focus */
+}
+
+.page-input::placeholder {
+  color: #999; /* Placeholder color */
+}
+
+

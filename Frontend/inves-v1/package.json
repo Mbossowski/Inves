@@ -1,0 +1,60 @@
+{
+  "name": "inves-v1",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.7.1",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@stomp/stompjs": "^7.0.0",
+    "apexcharts": "^4.3.0",
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
+    "buffer": "^6.0.3",
+    "chart.js": "^4.4.7",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "chartjs-chart-financial": "^0.2.1",
+    "cra-template": "1.2.0",
+    "crypto-browserify": "^3.12.1",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "react": "^18.3.1",
+    "react-apexcharts": "^1.7.0",
+    "react-bootstrap": "^2.10.6",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.3.1",
+    "react-player": "^2.16.0",
+    "react-router-dom": "^7.0.2",
+    "react-scripts": "5.0.1",
+    "recharts": "^2.15.0",
+    "sockjs-client": "^1.6.1",
+    "stream-browserify": "^3.0.0",
+    "url": "^0.11.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "web-vitals": "^4.2.4"
+  }
+}
