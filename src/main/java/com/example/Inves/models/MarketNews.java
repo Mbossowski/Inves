@@ -3,8 +3,11 @@ package com.example.Inves.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+
+import java.net.URL;
 import java.util.Date;
 /**
  * @author Bossowski
@@ -15,14 +18,13 @@ import java.util.Date;
 
 @Data
 @Builder
-@Entity
+@AllArgsConstructor
 public class MarketNews {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
 
     private String Title;
-    private String Content;
-    private Date PublishedDate;
+    private String PublishedDate;
+    private String Topic;
     private String Source;
+    private String url;
 }

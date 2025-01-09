@@ -1,21 +1,16 @@
 package com.example.Inves.controllers;
 
-import com.example.Inves.models.Stock;
+import com.example.Inves.requestmodels.StockRequest;
 import com.example.Inves.services.impl.WatchlistServiceImpl;
-import com.example.Inves.services.impl.YahooFinanceServiceImpl;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.Inves.models.Watchlist;
-import com.example.Inves.requestmodels.WatchlistRequest;
-import com.example.Inves.services.*;
 
 import java.util.List;
 
@@ -26,9 +21,10 @@ import java.util.List;
  * @date 07/12/2024 - 11:53
  */
 @RestController
-@RequestMapping( value = "/api/watchlist")
+@RequestMapping(value = "/api/watchlist")
 @CrossOrigin("http://localhost:3000")
 public class WatchlistController {
+
     @Autowired
     private WatchlistServiceImpl watchlistService;
 
@@ -41,5 +37,22 @@ public class WatchlistController {
     public ResponseEntity<List<Watchlist>> getWatchlistByUserId(@PathVariable Long idUser) {
         List<Watchlist> watchlists = watchlistService.getWatchlistByUserId(idUser);
         return ResponseEntity.ok(watchlists);
+    }
+
+    @PutMapping("")
+    public ResponseEntity<String> addToWatchlist(@RequestParam Long userId, @RequestBody StockRequest stockRequest) {
+        try {
+            // Call the service method to add the stock
+            String response = watchlistService.addStockToWatchlist(userId, stockRequest.getSymbol());
+
+            // Check the response message from the service
+            if (response.equals("This stock is already in your watchlist.")) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response); // Return Bad Request if already in watchlist
+            }
+
+            return ResponseEntity.ok(response); // Stock added successfully
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error adding stock to watchlist.");
+        }
     }
 }

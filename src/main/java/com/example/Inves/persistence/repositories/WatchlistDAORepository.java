@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Bossowski
@@ -18,4 +19,7 @@ import java.util.List;
 @Repository
 public interface WatchlistDAORepository extends JpaRepository<Watchlist, Long> {
     List<Watchlist> findByUserId(Long userId); // Find all watchlist items for a specific user
+
+    // Find if the stock already exists in the user's watchlist
+  //  Optional<Watchlist> findByUserIdAndStock(Long userId, Stock stock);
 }

@@ -5,6 +5,7 @@ import com.example.Inves.models.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -15,11 +16,11 @@ import java.util.Date;
  */
 @Data
 public class StockPriceRequest {
-    private Stock stock;
-    private Date Date;
-    private BigDecimal OpenPrice;
-    private BigDecimal ClosePrice;
-    private BigDecimal HighPrice;
-    private BigDecimal LowPrice;
-    private Long Volume;
+
+    private String datetime;
+    private BigDecimal open;
+    private BigDecimal close;
+    private BigDecimal high;
+    private BigDecimal low;
+    private Long volume;
 }

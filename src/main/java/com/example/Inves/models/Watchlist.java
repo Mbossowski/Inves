@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 public class Watchlist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
 
     @ManyToOne
@@ -22,5 +23,15 @@ public class Watchlist {
     @JsonIgnore
     private User user;
 
-    private String Symbol;
+    @ManyToOne
+    @JoinColumn(name = "symbol", referencedColumnName = "symbol", nullable = false)
+    private Stock stock;
+
+
+    public Watchlist(User user, Stock stock)
+    {
+        this.user = user;
+        this.stock = stock;
+
+    }
 }

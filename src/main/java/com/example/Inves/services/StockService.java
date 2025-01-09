@@ -1,6 +1,12 @@
 package com.example.Inves.services;
 
 
+import com.example.Inves.models.Stock;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import java.io.IOException;
+import java.util.Optional;
 
 /**
  * @author Bossowski
@@ -10,4 +16,11 @@ package com.example.Inves.services;
  */
 
 public interface StockService {
+    Page<Stock> allStocks(int page, int size);
+
+    Page<Stock> getStocks(String query, Pageable pageable);
+
+    Optional<Stock> getStock(String symbol);
+
+    public Stock getStockDetails(String symbol);
 }

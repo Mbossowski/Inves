@@ -20,16 +20,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String FirstName;
-    private String LastName;
-    private String Title;
-    private String Phone;
-    private String Address;
-    private String IBAN;
+    private String firstName;
+    private String lastName;
+    private String title;
+    private String phone;
+    private String country;
+    private String city;
+    private String street;
+    private String iban;
 
     // Add the new email and username fields
     private String username;
     private String email;
+    private Double balance;
 
     // Password should be hashed before saving it
 
